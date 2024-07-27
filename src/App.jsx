@@ -1,33 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { useState } from "react"
+import About from "./Component/About/About"
+import Campus from "./Component/Campus/Campus"
+import Contact from "./Component/Contact/Contact"
+import Footer from "./Component/Footer/Footer"
+import Hero from "./Component/Hero/Hero"
+import Navbar from "./Component/Navbar/Navbar"
+import Program from "./Component/Programms/Program"
+import Testimonial from "./Component/Testimonial/Testimonial"
+import Title from "./Component/Title/Title"
+import Video from "./Component/video/Video"
 function App() {
-  const [count, setCount] = useState(0)
+  const [play,setplay]=useState(false)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Navbar /> 
+      <Hero/>
+      
+      <div className="container">
+      <hr />
+      <Title subTitle="Our Program" title="What we offer"/>
+      <hr />
+      <Program/>
+      <hr />
+      <About setplay={setplay}/>
+      <hr />
+      <Title subTitle="Gallery" title="Campus photos"/>
+      <Campus/>
+      <Title subTitle="Testimonial" title="What a student says?"/>
+      <Testimonial/>
+      <Title subTitle="Contact us" title="Get in touch"/>
+      <Contact/>
+      <Footer/>
+      <Video play={play} setplay={setplay}/>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
